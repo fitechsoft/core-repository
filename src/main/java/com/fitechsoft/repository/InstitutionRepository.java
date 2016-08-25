@@ -29,6 +29,6 @@ public interface InstitutionRepository extends Repository<FDInstitution, Long> {
      * @param identifier the identifier to search for.
      * @return
      */
-    FDInstitution findByIdentifier(String identifier);
+//    FDInstitution findByIdentifier(String identifier);
 
 }

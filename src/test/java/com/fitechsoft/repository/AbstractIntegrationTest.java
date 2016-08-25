@@ -45,21 +45,21 @@ public abstract class AbstractIntegrationTest {
      *
      * @throws SQLException
      */
-    @Before
-    public void populateDatabase() throws SQLException {
-
-        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-        populator.addScript(new ClassPathResource("data.sql"));
-
-        Connection connection = null;
-
-        try {
-            connection = DataSourceUtils.getConnection(dataSource);
-            populator.populate(connection);
-        } finally {
-            if (connection != null) {
-                DataSourceUtils.releaseConnection(connection, dataSource);
-            }
-        }
-    }
+//    @Before
+//    public void populateDatabase() throws SQLException {
+//
+//        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+//        populator.addScript(new ClassPathResource("data.sql"));
+//
+//        Connection connection = null;
+//
+//        try {
+//            connection = DataSourceUtils.getConnection(dataSource);
+//            populator.populate(connection);
+//        } finally {
+//            if (connection != null) {
+//                DataSourceUtils.releaseConnection(connection, dataSource);
+//            }
+//        }
+//    }
 }

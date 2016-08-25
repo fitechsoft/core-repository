@@ -7,7 +7,7 @@ import org.springframework.data.repository.Repository;
 /**
  * Created by chun on 16/8/25.
  */
-public interface UserRepository extends Repository<FDSubject, Long> {
+public interface UserRepository extends Repository<FDUser, Long> {
     /**
      * Returns the {@link FDUser} with the given identifier.
      *

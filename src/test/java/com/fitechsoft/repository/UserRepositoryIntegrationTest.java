@@ -27,7 +27,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
- * Integration tests for {@link SubjectRepository}.
+ * Integration tests for {@link UserRepository}.
  *
  * @author Oliver Gierke
  */
@@ -49,7 +49,7 @@ public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {
     }
 
     @Test
-    public void readsSubjectByIdentifier() {
+    public void readsUserByIdentifier() {
 
         FDUser fitech = new FDUser("Fitech", "Com");
 
@@ -69,7 +69,7 @@ public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {
 
         FDUser result = userRepository.save(alice);
 
-        FDDepartment savedDept =  departmentRepository.findOne(result.getSuperior().getId());
+        FDDepartment savedDept =  departmentRepository.findByIdentifier("Tech Department");
 
         assertThat(savedDept, is(notNullValue()));
         assertThat(savedDept, is(techDept));
