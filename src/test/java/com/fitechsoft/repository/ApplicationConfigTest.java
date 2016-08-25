@@ -28,7 +28,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Test case bootstrapping both JavaConfig and XML configuration to validate configuration.
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 public class ApplicationConfigTest {
 

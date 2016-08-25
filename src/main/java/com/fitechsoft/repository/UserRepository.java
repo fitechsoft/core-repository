@@ -1,11 +1,10 @@
 package com.fitechsoft.repository;
 
-import com.fitechsoft.domain.base.FDSubject;
-import com.fitechsoft.domain.base.FDUser;
+import com.fitechsoft.domain.subject.FDUser;
 import org.springframework.data.repository.Repository;
 
 /**
- * Created by chun on 16/8/25.
+ * @author Chun Cao
  */
 public interface UserRepository extends Repository<FDUser, Long> {
     /**

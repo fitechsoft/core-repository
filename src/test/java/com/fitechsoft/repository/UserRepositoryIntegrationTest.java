@@ -16,8 +16,8 @@
 package com.fitechsoft.repository;
 
 import com.fitechsoft.ApplicationConfig;
-import com.fitechsoft.domain.base.FDDepartment;
-import com.fitechsoft.domain.base.FDUser;
+import com.fitechsoft.domain.subject.FDDepartment;
+import com.fitechsoft.domain.subject.FDUser;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -29,7 +29,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Integration tests for {@link UserRepository}.
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 @ContextConfiguration(classes = ApplicationConfig.class)
 public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {

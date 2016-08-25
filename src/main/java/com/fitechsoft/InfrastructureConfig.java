@@ -35,7 +35,7 @@ import javax.sql.DataSource;
  * configuration activating the plain JPA based repository configuration (see {@link PlainJpaConfig}) as well as the
  * Spring Data JPA based one (see {@link ApplicationConfig}).
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 @Configuration
 @EnableTransactionManagement

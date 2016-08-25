@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * JavaConfig class to enable Spring Data JPA repositories. Re-using common infrastrcuture configuration from
  * {@link InfrastructureConfig}.
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 @Configuration
 @EnableJpaRepositories

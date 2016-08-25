@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Import;
  * {@link com.fitechsoft.repository.JpaSubjectRepository}. Re-uses the common infrastructure configuration
  * defined in {@link InfrastructureConfig}.
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 @Configuration
 @ComponentScan(basePackageClasses = UserRepository.class)

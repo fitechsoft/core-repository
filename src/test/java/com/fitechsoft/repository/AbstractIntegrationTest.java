@@ -15,23 +15,18 @@
  */
 package com.fitechsoft.repository;
 
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.DataSourceUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
  * Base class for integration tests.
  *
- * @author Oliver Gierke
+ * @author Chun Cao
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional

@@ -1,10 +1,10 @@
 package com.fitechsoft.repository;
 
-import com.fitechsoft.domain.base.FDDepartment;
+import com.fitechsoft.domain.subject.FDDepartment;
 import org.springframework.data.repository.Repository;
 
 /**
- * Created by chun on 16/8/25.
+ * @author Chun Cao
  */
 public interface DepartmentRepository  extends Repository<FDDepartment, Long> {
 
