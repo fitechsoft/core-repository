@@ -1,24 +1,24 @@
 package com.fitechsoft.repository;
 
-import com.fitechsoft.domain.subject.Subject;
+import com.fitechsoft.domain.base.FDSubject;
 import org.springframework.data.repository.Repository;
 
-public interface SubjectRepository extends Repository<Subject, Long> {
+public interface SubjectRepository extends Repository<FDSubject, Long> {
     /**
-     * Returns the {@link Subject} with the given identifier.
+     * Returns the {@link FDSubject} with the given identifier.
      *
      * @param id the id to search for.
      * @return
      */
-    Subject findOne(Long id);
+    FDSubject findOne(Long id);
 
     /**
-     * Saves the given {@link Subject}.
+     * Saves the given {@link FDSubject}.
      *
-     * @param subject the {@link Subject} to search for.
+     * @param subject the {@link FDSubject} to search for.
      * @return
      */
-    Subject save(Subject subject);
+    FDSubject save(FDSubject subject);
 
     /**
      * Returns the customer with the given EmailAddress.
@@ -26,6 +26,6 @@ public interface SubjectRepository extends Repository<Subject, Long> {
      * @param identifier the identifier to search for.
      * @return
      */
-    Subject findByIdentifier(String identifier);
+    FDSubject findByIdentifier(String identifier);
 
 }

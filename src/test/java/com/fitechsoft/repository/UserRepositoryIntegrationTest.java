@@ -16,7 +16,8 @@
 package com.fitechsoft.repository;
 
 import com.fitechsoft.ApplicationConfig;
-import com.fitechsoft.domain.subject.Subject;
+import com.fitechsoft.domain.base.FDDepartment;
+import com.fitechsoft.domain.base.FDUser;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,28 +32,48 @@ import static org.junit.Assert.assertThat;
  * @author Oliver Gierke
  */
 @ContextConfiguration(classes = ApplicationConfig.class)
-public class SubjectRepositoryIntegrationTest extends AbstractIntegrationTest {
+public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {
 
     @Autowired
-    SubjectRepository repository;
+    UserRepository userRepository;
+
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     @Test
-    public void savesCustomerCorrectly() {
-        Subject chun = new Subject("Chun");
+    public void savesUserCorrectly() {
+        FDUser alice = new FDUser("Alice", "Zhang");
 
-        Subject result = repository.save(chun);
+        FDUser result = userRepository.save(alice);
         assertThat(result.getId(), is(notNullValue()));
     }
 
     @Test
     public void readsSubjectByIdentifier() {
 
-        Subject fitech = new Subject("Fitech");
+        FDUser fitech = new FDUser("Fitech", "Com");
 
-        repository.save(fitech);
+        userRepository.save(fitech);
 
-        Subject result = repository.findByIdentifier("Fitech");
+        FDUser result = userRepository.findByIdentifier("Fitech Com");
         assertThat(result, is(fitech));
+    }
+
+    @Test
+    public void saveUserWithDepartmentCorrectly(){
+
+        FDUser alice = new FDUser("Alice", "Zhang");
+        FDDepartment techDept = new FDDepartment("Tech Department");
+
+        alice.setSuperior(techDept);
+
+        FDUser result = userRepository.save(alice);
+
+        FDDepartment savedDept =  departmentRepository.findOne(result.getSuperior().getId());
+
+        assertThat(savedDept, is(notNullValue()));
+        assertThat(savedDept, is(techDept));
+
     }
 
 }

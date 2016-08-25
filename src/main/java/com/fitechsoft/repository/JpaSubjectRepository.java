@@ -15,7 +15,7 @@
  */
 package com.fitechsoft.repository;
 
-import com.fitechsoft.domain.subject.Subject;
+import com.fitechsoft.domain.base.FDSubject;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -38,15 +38,15 @@ class JpaSubjectRepository implements SubjectRepository {
      * @see com.oreilly.springdata.jpa.core.CustomerRepository#findOne(java.lang.Long)
      */
     @Override
-    public Subject findOne(Long id) {
-        return em.find(Subject.class, id);
+    public FDSubject findOne(Long id) {
+        return em.find(FDSubject.class, id);
     }
 
     /*
      * (non-Javadoc)
      * @see com.oreilly.springdata.jpa.core.CustomerRepository#save(com.oreilly.springdata.jpa.core.Customer)
      */
-    public Subject save(Subject customer) {
+    public FDSubject save(FDSubject customer) {
         if (customer.getId() == null) {
             em.persist(customer);
             return customer;
@@ -60,10 +60,10 @@ class JpaSubjectRepository implements SubjectRepository {
      * @see com.oreilly.springdata.jpa.core.CustomerRepository#findByEmailAddress(com.oreilly.springdata.jpa.core.EmailAddress)
      */
     @Override
-    public Subject findByIdentifier(String identifier) {
+    public FDSubject findByIdentifier(String identifier) {
 
-        TypedQuery<Subject> query = em.createQuery("select c from Subject c where c.identifier = :identifier",
-                Subject.class);
+        TypedQuery<FDSubject> query = em.createQuery("select c from FDSubject c where c.identifier = :identifier",
+                FDSubject.class);
         query.setParameter("identifier", identifier);
 
         return query.getSingleResult();

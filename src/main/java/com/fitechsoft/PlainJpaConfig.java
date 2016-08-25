@@ -15,8 +15,7 @@
  */
 package com.fitechsoft;
 
-import com.fitechsoft.InfrastructureConfig;
-import com.fitechsoft.repository.SubjectRepository;
+import com.fitechsoft.repository.UserRepository;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -29,7 +28,7 @@ import org.springframework.context.annotation.Import;
  * @author Oliver Gierke
  */
 @Configuration
-@ComponentScan(basePackageClasses = SubjectRepository.class)
+@ComponentScan(basePackageClasses = UserRepository.class)
 @Import(InfrastructureConfig.class)
 public class PlainJpaConfig {
 
