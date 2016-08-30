@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fitechsoft.repository;
+package com.fitechsoft.repository.core;
 
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

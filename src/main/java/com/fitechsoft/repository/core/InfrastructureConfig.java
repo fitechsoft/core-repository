@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fitechsoft;
+package com.fitechsoft.repository.core;
 
+import com.fitechsoft.domain.core.FDSubject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -69,7 +70,7 @@ public class InfrastructureConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan(getClass().getPackage().getName());
+        factory.setPackagesToScan(FDSubject.class.getPackage().getName());
         factory.setDataSource(dataSource());
 
         return factory;

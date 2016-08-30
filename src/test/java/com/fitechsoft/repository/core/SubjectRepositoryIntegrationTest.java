@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fitechsoft.repository;
+package com.fitechsoft.repository.core;
 
-import com.fitechsoft.ApplicationConfig;
-import com.fitechsoft.domain.subject.FDDepartment;
-import com.fitechsoft.domain.subject.FDUser;
+import com.fitechsoft.domain.core.FDSubject;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,53 +25,34 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
- * Integration tests for {@link UserRepository}.
+ * Integration tests for {@link ConcreatSubjectRepository}.
  *
  * @author Chun Cao
  */
 @ContextConfiguration(classes = ApplicationConfig.class)
-public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {
+public class SubjectRepositoryIntegrationTest extends AbstractIntegrationTest {
 
     @Autowired
-    UserRepository userRepository;
+    ConcreatSubjectRepository subjectRepository;
 
-    @Autowired
-    DepartmentRepository departmentRepository;
 
     @Test
-    public void savesUserCorrectly() {
-        FDUser alice = new FDUser("Alice", "Zhang");
+    public void savesSubjectCorrectly() {
+        FDSubject alice = new FDSubject("Alice");
 
-        FDUser result = userRepository.save(alice);
+        FDSubject result = subjectRepository.save(alice);
         assertThat(result.getId(), is(notNullValue()));
     }
 
     @Test
     public void readsUserByIdentifier() {
 
-        FDUser fitech = new FDUser("Fitech", "Com");
+        FDSubject fitech = new FDSubject("Fitech");
 
-        userRepository.save(fitech);
+        subjectRepository.save(fitech);
 
-        FDUser result = userRepository.findByIdentifier("Fitech Com");
+        FDSubject result = subjectRepository.findByIdentifier("Fitech");
         assertThat(result, is(fitech));
-    }
-
-    @Test
-    public void saveUserWithDepartmentCorrectly(){
-
-        FDUser alice = new FDUser("Alice", "Zhang");
-        FDDepartment techDept = new FDDepartment("Tech Department");
-
-        alice.setSuperior(techDept);
-
-        FDUser result = userRepository.save(alice);
-
-        FDDepartment savedDept =  departmentRepository.findByIdentifier("Tech Department");
-
-        assertThat(savedDept, is(notNullValue()));
-        assertThat(savedDept, is(techDept));
-
     }
 
 }

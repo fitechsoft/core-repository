@@ -13,23 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fitechsoft;
+package com.fitechsoft.repository.core;
 
-import com.fitechsoft.repository.UserRepository;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- * JavaConfig class to activate component scanning to pick up
- * {@link com.fitechsoft.repository.JpaSubjectRepository}. Re-uses the common infrastructure configuration
- * defined in {@link InfrastructureConfig}.
+ * JavaConfig class to enable Spring Data JPA repositories. Re-using common infrastrcuture configuration from
+ * {@link InfrastructureConfig}.
  *
  * @author Chun Cao
  */
 @Configuration
-@ComponentScan(basePackageClasses = UserRepository.class)
+@EnableJpaRepositories
 @Import(InfrastructureConfig.class)
-public class PlainJpaConfig {
+public class ApplicationConfig {
 
 }
