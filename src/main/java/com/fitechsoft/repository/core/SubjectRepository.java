@@ -1,26 +1,9 @@
 package com.fitechsoft.repository.core;
 
 import com.fitechsoft.domain.core.FDSubject;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface SubjectRepository<S extends FDSubject> extends Repository<S, Long> {
-
-
-    /**
-     * Returns the {@link S} with the given identifier.
-     *
-     * @param id the id to search for.
-     * @return
-     */
-    S findOne(Long id);
-
-    /**
-     * Saves the given {@link S}.
-     *
-     * @param user the {@link S} to search for.
-     * @return
-     */
-    S save(S user);
+public interface SubjectRepository<S extends FDSubject> extends CrudRepository<S, Long> {
 
     /**
      * Returns the customer with the given EmailAddress.
