@@ -36,7 +36,7 @@ public class ApplicationConfigTest {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         assertThat(context, is(notNullValue()));
-        assertThat(context.getBean(ConcreatSubjectRepository.class), is(notNullValue()));
+        assertThat(context.getBean(FDUserRepository.class), is(notNullValue()));
     }
 
     @Test
@@ -44,6 +44,6 @@ public class ApplicationConfigTest {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-context.xml");
         assertThat(context, is(notNullValue()));
-        assertThat(context.getBean(ConcreatSubjectRepository.class), is(notNullValue()));
+        assertThat(context.getBean(FDUserRepository.class), is(notNullValue()));
     }
 }

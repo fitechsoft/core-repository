@@ -15,8 +15,9 @@
  */
 package com.fitechsoft.repository.core;
 
-import com.fitechsoft.domain.core.FDSubject;
+import com.fitechsoft.domain.core.FDUser;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -40,6 +41,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("com.fitechsoft.repository.core")
 public class InfrastructureConfig {
 
     /**
@@ -52,7 +54,7 @@ public class InfrastructureConfig {
     @Bean
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        return builder.setType(EmbeddedDatabaseType.HSQL).build();
+        return builder.setType(EmbeddedDatabaseType.H2).build();
     }
 
     /**
@@ -65,12 +67,12 @@ public class InfrastructureConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabase(Database.HSQL);
+        vendorAdapter.setDatabase(Database.H2);
         vendorAdapter.setGenerateDdl(true);
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan(FDSubject.class.getPackage().getName());
+        factory.setPackagesToScan(FDUser.class.getPackage().getName(), FDUserRepository.class.getPackage().getName());
         factory.setDataSource(dataSource());
 
         return factory;
